@@ -5,31 +5,47 @@
 // 5. output and keep score
 // 6. output winner ask to play again or not
 
+let winsPlayer = 0;
+let winsComputer = 0;
+
 const getComputerChoice = () =>
   Math.floor(Math.random() * 3);
 const getPlayerChoice = () =>
-  prompt(
-    'Type 0 for rock, 1 for paper, and 2 for scissors.'
+  parseInt(
+    prompt(
+      'Type 0 for rock, 1 for paper, and 2 for scissors.'
+    )
   );
 const playRound = () => {
-  if ((playerChoice + 1) % computerChoice === 0) {
+  const p1 = getPlayerChoice();
+  const p2 = getComputerChoice();
+  if ((p1 + 1) % p2 === 0) {
     console.log('You Lose the computer wins');
-    winsComputer++;
-  } else if (playerChoice === computerChoice) {
+    return (winsComputer = winsComputer++);
+  } else if (p1 === p2) {
     console.log('It is a tie!');
   } else {
     console.log('You win!!');
-    winsPlayer++;
+    return (winsPlayer = winsPlayer++);
   }
 };
 
-while (winsComputer < 5 || winsPlayer < 5) {
-  const computerChoice = getComputerChoice();
-  const playerChoice = getPlayerChoice();
-  const winsPlayer = 0;
-  const winsComputer = 0;
+const game = () => {
   console.log(
-    `Hello the score is computer: ${computerChoice} to player: ${playerChoice}`
+    'Hi! lets play a game of rock paper scissors.'
   );
-  playRound();
-}
+
+  while (winsComputer < 5 || winsPlayer < 5) {
+    console.log(
+      `Hello the score is computer: ${winsComputer} to player: ${winsPlayer}`
+    );
+    playRound(winsPlayer, winsComputer);
+  }
+  winsComputer === 5
+    ? console.log(
+        `The computer won and the score was ${winsComputer} to ${winsPlayer}`
+      )
+    : console.log(
+        `You won!! and the score was ${winsComputer} to ${winsPlayer}`
+      );
+};
