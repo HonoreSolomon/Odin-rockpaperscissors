@@ -21,12 +21,12 @@ const playRound = () => {
   const p2 = getComputerChoice();
   if ((p1 + 1) % p2 === 0) {
     console.log('You Lose the computer wins');
-    return (winsComputer = winsComputer++);
+    winsComputer++;
   } else if (p1 === p2) {
     console.log('It is a tie!');
   } else {
     console.log('You win!!');
-    return (winsPlayer = winsPlayer++);
+    winsPlayer++;
   }
 };
 
@@ -35,17 +35,20 @@ const game = () => {
     'Hi! lets play a game of rock paper scissors.'
   );
 
-  while (winsComputer < 5 || winsPlayer < 5) {
+  for (let index = 0; index < 5; index++) {
     console.log(
       `Hello the score is computer: ${winsComputer} to player: ${winsPlayer}`
     );
-    playRound(winsPlayer, winsComputer);
+    playRound();
+    if (winsComputer === 3 || winsPlayer === 3) {
+      winsComputer === 3
+        ? console.log(
+            `The computer won and the score was ${winsComputer} to ${winsPlayer}`
+          )
+        : console.log(
+            `You won!! and the score was ${winsComputer} to ${winsPlayer}`
+          );
+      break;
+    }
   }
-  winsComputer === 5
-    ? console.log(
-        `The computer won and the score was ${winsComputer} to ${winsPlayer}`
-      )
-    : console.log(
-        `You won!! and the score was ${winsComputer} to ${winsPlayer}`
-      );
 };
