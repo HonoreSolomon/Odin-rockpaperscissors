@@ -8,6 +8,13 @@
 let winsPlayer = 0;
 let winsComputer = 0;
 const btns = document.querySelectorAll('.selection');
+const result = document.querySelector('.result');
+const playerScore = document.querySelector('.playerScore');
+const computerScore = document.querySelector(
+  '.computerScore'
+);
+playerScore.textContent = winsPlayer;
+computerScore.textContent = winsComputer;
 
 const getComputerChoice = () =>
   Math.floor(Math.random() * 3);
@@ -20,25 +27,36 @@ const getPlayerChoice = () =>
 const playRound = function () {
   const p1 = parseInt(this.value);
   const p2 = getComputerChoice();
-  console.log(typeof p1, p2);
   if ((p1 + 1) % p2 === 0) {
-    console.log('You Lose the computer wins');
+    result.textContent = 'You Lose the computer wins';
     winsComputer++;
   } else if (p1 === p2) {
-    console.log('It is a tie!');
+    result.textContent = 'It is a tie!';
   } else {
-    console.log('You win!!');
+    result.textContent = 'You win!!';
     winsPlayer++;
   }
+  playerScore.textContent = winsPlayer;
+  computerScore.textContent = winsComputer;
 };
 
 for (const btn of btns) {
   btn.addEventListener('click', playRound);
 }
 
+if (winsPlayer > 5 || winsComputer >= 5) {
+  console.log('done');
+  winsPlayer === 5
+    ? alert(`The player won the game!`)
+    : alert(`The computer won the game!`);
+  for (const btn of btns) {
+    btn.disabled = true;
+  }
+}
+
 // const game = () => {
 //   console.log(
-//     'Hi! lets play a game of rock paper scissors.'
+//     ''
 //   );
 
 //   for (let index = 0; index < 5; index++) {
