@@ -7,6 +7,7 @@
 
 let winsPlayer = 0;
 let winsComputer = 0;
+const btns = document.querySelectorAll('.selection');
 
 const getComputerChoice = () =>
   Math.floor(Math.random() * 3);
@@ -16,9 +17,10 @@ const getPlayerChoice = () =>
       'Type 0 for rock, 1 for paper, and 2 for scissors.'
     )
   );
-const playRound = () => {
-  const p1 = getPlayerChoice();
+const playRound = function () {
+  const p1 = parseInt(this.value);
   const p2 = getComputerChoice();
+  console.log(typeof p1, p2);
   if ((p1 + 1) % p2 === 0) {
     console.log('You Lose the computer wins');
     winsComputer++;
@@ -30,25 +32,29 @@ const playRound = () => {
   }
 };
 
-const game = () => {
-  console.log(
-    'Hi! lets play a game of rock paper scissors.'
-  );
+for (const btn of btns) {
+  btn.addEventListener('click', playRound);
+}
 
-  for (let index = 0; index < 5; index++) {
-    console.log(
-      `Hello the score is computer: ${winsComputer} to player: ${winsPlayer}`
-    );
-    playRound();
-    if (winsComputer === 3 || winsPlayer === 3) {
-      winsComputer === 3
-        ? console.log(
-            `The computer won and the score was ${winsComputer} to ${winsPlayer}`
-          )
-        : console.log(
-            `You won!! and the score was ${winsComputer} to ${winsPlayer}`
-          );
-      break;
-    }
-  }
-};
+// const game = () => {
+//   console.log(
+//     'Hi! lets play a game of rock paper scissors.'
+//   );
+
+//   for (let index = 0; index < 5; index++) {
+//     console.log(
+//       `Hello the score is computer: ${winsComputer} to player: ${winsPlayer}`
+//     );
+//     playRound();
+//     if (winsComputer === 3 || winsPlayer === 3) {
+//       winsComputer === 3
+//         ? console.log(
+//             `The computer won and the score was ${winsComputer} to ${winsPlayer}`
+//           )
+//         : console.log(
+//             `You won!! and the score was ${winsComputer} to ${winsPlayer}`
+//           );
+//       break;
+//     }
+//   }
+// };
