@@ -8,31 +8,45 @@
       content="width=device-width, initial-scale=1.0"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Bear, ninja, cowboy</title>
   </head>
   <body>
+    <div class="background">
+
+      <header>
+        <h1>Welcome to the wild wild west</h1>
+      <h2 class="welcome">It's a game to five!</h2>
+    </header>
     <main>
-      <h1>Rock, Paper, Scissors</h1>
-      <div class="welcome">
-        Hi! lets play a game of rock paper scissors.
+      <p class="help">Bear beats Ninja | Ninja beats Cowboy | Cowboy beats Bear</p>
+      <div class="scores">
+        <p class="playerScore"></p>
+        <p class="computerScore"></p>
       </div>
-      <h3 class="playerScore"></h3>
-      <h3 class="computerScore"></h3>
-      <button class="selection" id="rock" value="0">
-        Rock
-      </button>
-      <!-- /.selection -->
-      <button class="selection" id="paper" value="1">
-        Paper
-      </button>
-      <!-- /.selection -->
-      <button class="selection" id="scissors" value="2">
-        Scissors
-      </button>
-      <!-- /.selection -->
+      <div class="champions">
+        <button class="selection" id="rock" value="0">
+          <img class="bear" src="/imgs/cut-angry-bear-.jpg"></img>
+          <!-- /.bear -->
+        </button>
+        <!-- /.selection -->
+        <button class="selection" id="paper" value="1">
+          <img class="ninja" src="/imgs/ninjaa.jpg"></img>
+          <!-- /.ninja -->
+        </button>
+        <!-- /.selection -->
+        <button class="selection" id="scissors" value="2">
+          <img class="cowboy" src="/imgs/cowboy.jpg"></img>
+          <!-- /.cowboy -->
+        </button>
+        <!-- /.selection -->
+      </div>
+      <h3>Pick your champion!</h3>
+      <!-- /.champions -->
       <div class="result"></div>
+      <button class="playAgain">Play Again</button>
       <!-- /.result -->
     </main>
+  </div> <!-- /.background -->
     <script src="app.js"></script>
   </body>
 </html>

@@ -13,8 +13,9 @@ const playerScore = document.querySelector('.playerScore');
 const computerScore = document.querySelector(
   '.computerScore'
 );
-playerScore.textContent = winsPlayer;
-computerScore.textContent = winsComputer;
+const playAgain = document.querySelector('.playAgain');
+playerScore.textContent = `Player Score: ${winsPlayer}`;
+computerScore.textContent = `Computer Score: ${winsComputer}`;
 
 const getComputerChoice = () =>
   Math.floor(Math.random() * 3);
@@ -36,24 +37,37 @@ const playRound = function () {
     result.textContent = 'You win!!';
     winsPlayer++;
   }
-  playerScore.textContent = winsPlayer;
-  computerScore.textContent = winsComputer;
+  playerScore.textContent = `Player Score: ${winsPlayer}`;
+  computerScore.textContent = `Computer Score: ${winsComputer}`;
+  declareWinner();
 };
 
-for (const btn of btns) {
-  btn.addEventListener('click', playRound);
-}
-
-if (winsPlayer > 5 || winsComputer >= 5) {
-  console.log('done');
-  winsPlayer === 5
-    ? alert(`The player won the game!`)
-    : alert(`The computer won the game!`);
-  for (const btn of btns) {
-    btn.disabled = true;
+const declareWinner = () => {
+  if (winsPlayer >= 5 || winsComputer >= 5) {
+    for (const btn of btns) {
+      btn.setAttribute('disabled', '');
+      playAgain.style.zIndex = '1';
+    }
+    const result = document.querySelector('.result');
+    winsPlayer > winsComputer
+      ? (result.textContent = `You won!! and the score was ${winsComputer} to ${winsPlayer}`)
+      : (result.textContent = `The computer won and the score was ${winsComputer} to ${winsPlayer}`);
   }
-}
+};
+const resetGame = () => {
+  playAgain.addEventListener('click', () =>
+    window.location.reload()
+  );
+};
 
+const game = () => {
+  for (const btn of btns) {
+    btn.addEventListener('click', playRound);
+  }
+  resetGame();
+};
+
+game();
 // const game = () => {
 //   console.log(
 //     ''
