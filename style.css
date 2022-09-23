@@ -58,7 +58,7 @@ button:hover {
       rgba(58, 58, 58, 0.4),
       rgba(58, 58, 58, 0.4)
     ),
-    url(/imgs/wild.jpg) no-repeat center center fixed;
+    no-repeat center center fixed url('/imgs/wild.jpg');
   background-size: cover;
   height: 100vh;
 }
