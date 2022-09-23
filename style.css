@@ -2,12 +2,20 @@ body {
   color: #fafafa;
   margin: 0;
   padding: 0;
+  font-family: rye;
+  letter-spacing: 3px;
 }
 header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  font-family: opensans;
+  letter-spacing: 5px;
+  color: #eeeded;
+}
+h1 {
+  font-family: smokum;
 }
 
 main {
@@ -45,8 +53,12 @@ button:hover {
 }
 
 .background {
-  background: url(/imgs/wild.jpg) no-repeat center center
-    fixed;
+  background: linear-gradient(
+      0deg,
+      rgba(58, 58, 58, 0.4),
+      rgba(58, 58, 58, 0.4)
+    ),
+    url(/imgs/wild.jpg) no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
 }
@@ -57,7 +69,7 @@ h3 {
 }
 
 .playAgain {
-  background-color: #fafafa;
+  background-color: #f1f0f0f5;
   cursor: pointer;
   transition: 0.3s;
   font-size: 32px;
@@ -65,6 +77,9 @@ h3 {
   border: none;
   border-radius: 10px;
   z-index: -2;
+  font-family: smokum;
+  letter-spacing: 3px;
+  color: rgb(36, 36, 36);
 }
 .result {
   font-size: 22px;
@@ -73,4 +88,26 @@ h3 {
 
 .help {
   font-size: 24px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #f1f0f0f5;
+  transition: 0.5s;
+}
+
+a:hover {
+  font-size: 24px;
+  transform: translateY(-6px);
 }
